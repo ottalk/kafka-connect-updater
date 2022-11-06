@@ -1,0 +1,19 @@
+{
+    "name": "mm2-cluster",
+    "config": {
+        "name": "mm2-cluster",
+        "connector.class": "org.apache.kafka.connect.mirror.MirrorSourceConnector",
+        "source.cluster.alias": "A",
+        "target.cluster.alias": "B",
+        "source.cluster.bootstrap.servers": "kuldips-imac.local:9092",
+        "target.cluster.bootstrap.servers": "kuldips-imac.local:9092",
+        "topics": "topic_1",
+        "mm2-configs.B.internal": "mm2-configs",
+        "mm2-offsets.B.internal": "mm2-offsets",
+        "mm2-status.B.internal":  "mm2-status",
+        "mm2-offset-syncs.B.internal": "mm2-offset-syncs",
+        "sync.topic.acls.enabled": "false",
+        "key.converter":"org.apache.kafka.connect.converters.ByteArrayConverter",
+        "value.converter":"org.apache.kafka.connect.converters.ByteArrayConverter"
+    }
+}

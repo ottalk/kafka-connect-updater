@@ -26,12 +26,12 @@ def get_connector_details(connector):
     return r.text
 
 @app.route('/create_update_connectors', methods=['GET','POST'])
-def create_update_connectors(connector):
-
-
-    
-    r=requests.get('http://localhost:8083/connectors')
-    return r.text    
+def create_update_connectors():
+    if request.method == "POST":
+        files = request.files.getlist("file")
+        for file in files:
+            print(file.filename)
+    return 'FILES='.join(files)
 
 if __name__ == '__main__':
     app.run(debug=True,port=8088)
