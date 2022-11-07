@@ -33,8 +33,8 @@ def create_update_connectors():
     config_file_dict={}
     for config_file in config_file_list:
         config_file_dict[config_file]="open('"+config_file+"','rb')"
-    test_response = requests.post("http://localhost:8088/create_update_connectors", files = config_file_dict)
-    return test_response.text
+    response = requests.post("http://localhost:8088/create_update_connectors",files=config_file_dict)
+    return response.text
 
 if __name__ == '__main__':
     app.run(debug=True,port=8077)
