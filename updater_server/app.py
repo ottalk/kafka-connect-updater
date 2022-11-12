@@ -51,12 +51,12 @@ def create_update_connectors():
                 put_config_json=config_json['config']
                 print(put_config_json)
                 put_response=requests.put('http://localhost:8083/connectors/'+config+'/config',headers=headers, json=put_config_json)
-                print("put_response="+put_response.text)
+                print("PUT_RESPONSE="+put_response.text)
             else:
                 print("POST")
                 print(config_json)
                 post_response=requests.post('http://localhost:8083/connectors',headers=headers, json=config_json)
-                print("post_response="+post_response.text)
+                print("POST_RESPONSE="+post_response.text)
 
     return "COMPLETED\n"
 
