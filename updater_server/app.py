@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def default():
-    r=requests.get('http://localhost:8083')
+    r=requests.get('http://connect:8083')
     route_details="""CONNECT VERSION:"""+r.text+"""
 FUNCTIONS:
 /get_connectors  \t\t\t - list currently configured connectors
@@ -22,18 +22,18 @@ FUNCTIONS:
 
 @app.route('/get_connectors')
 def get_connectors():
-    r=requests.get('http://localhost:8083/connectors')
+    r=requests.get('http://connect:8083/connectors')
     return r.text
 
 @app.route('/get_connector_config/<string:connector>')
 def get_connector_details(connector):
-    r=requests.get('http://localhost:8083/connectors/'+connector)
+    r=requests.get('http://connect:8083/connectors/'+connector)
     return r.text
 
 @app.route('/create_update_connectors', methods=['GET','POST'])
 def create_update_connectors():
     # Get list of currently configured connectors
-    connectors_list=requests.get('http://localhost:8083/connectors')
+    connectors_list=requests.get('http://connect:8083/connectors')
     print(connectors_list.text)
     #print(''.join(connectors_list))
 
@@ -50,15 +50,15 @@ def create_update_connectors():
                 print("PUT")
                 put_config_json=config_json['config']
                 print(put_config_json)
-                put_response=requests.put('http://localhost:8083/connectors/'+config+'/config',headers=headers, json=put_config_json)
+                put_response=requests.put('http://connect:8083/connectors/'+config+'/config',headers=headers, json=put_config_json)
                 print("PUT_RESPONSE="+put_response.text)
             else:
                 print("POST")
                 print(config_json)
-                post_response=requests.post('http://localhost:8083/connectors',headers=headers, json=config_json)
+                post_response=requests.post('http://connect:8083/connectors',headers=headers, json=config_json)
                 print("POST_RESPONSE="+post_response.text)
 
     return "COMPLETED\n"
 
 if __name__ == '__main__':
-    app.run(debug=True,port=8088)
+    app.run(debug=True,port=8077)
