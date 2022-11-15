@@ -1,0 +1,13 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: run-updater-job
+spec:
+  ttlSecondsAfterFinished: 100
+  template:
+    spec:
+      containers:
+      - name: run-updater
+        image: ottalk/run_updater:latest
+        command: ["python3","run_updater.py"]
+      restartPolicy: Never

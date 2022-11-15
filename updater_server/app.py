@@ -35,11 +35,10 @@ def create_update_connectors():
     # Get list of currently configured connectors
     connectors_list=requests.get('http://connect:8083/connectors')
     print(connectors_list.text)
-    #print(''.join(connectors_list))
 
     if request.method == "POST":
         config_files = request.files.getlist("config_files")
-        print("#config_files="+str(len(config_files)))
+        print("no_of_config_files="+str(len(config_files)))
         for config_file in config_files:
             config_json = json.load(config_file)
             print("config file name="+config_file.filename)
