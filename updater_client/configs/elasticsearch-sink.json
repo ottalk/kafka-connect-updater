@@ -1,0 +1,20 @@
+{
+    "name": "elasticsearch-sink",
+    "config": {
+      "connector.class": "io.confluent.connect.elasticsearch.ElasticsearchSinkConnector",
+      "tasks.max": "1",
+      "topics": "topic_1",
+      "key.ignore": "true",
+      "connection.url": "https://quickstart-es-http:9200",
+      "connection.username": "elastic",
+      "connection.password": "Vpw3iAQ6282Iy4i7NM4M18tF",
+      "elastic.security.protocol": "SSL",
+      "elastic.https.ssl.endpoint.identification.algorithm": "",
+      "elastic.https.ssl.keystore.location": "/tmp/ssl/kafka.server.keystore.jks",
+      "elastic.https.ssl.keystore.password": "test1234",
+      "elastic.https.ssl.truststore.location": "/tmp/ssl/kafka.server.truststore.jks",
+      "elastic.https.ssl.truststore.password": "test1234",
+      "type.name": "kafka-connect",
+      "name": "elasticsearch-sink"
+    }
+  }
