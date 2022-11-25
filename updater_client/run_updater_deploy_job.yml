@@ -3,7 +3,7 @@ kind: Job
 metadata:
   name: run-updater-job
 spec:
-  ttlSecondsAfterFinished: 10
+  ttlSecondsAfterFinished: 20
   template:
     spec:
       containers:
